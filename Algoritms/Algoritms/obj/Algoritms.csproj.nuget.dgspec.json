@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Algoritms\\Algoritms\\Algoritms.csproj": {}
+    "C:\\Users\\User\\Desktop\\HackerRank-Algoritms\\Algoritms\\Algoritms\\Algoritms.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Algoritms\\Algoritms\\Algoritms.csproj": {
+    "C:\\Users\\User\\Desktop\\HackerRank-Algoritms\\Algoritms\\Algoritms\\Algoritms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Algoritms\\Algoritms\\Algoritms.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\HackerRank-Algoritms\\Algoritms\\Algoritms\\Algoritms.csproj",
         "projectName": "Algoritms",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Algoritms\\Algoritms\\Algoritms.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\HackerRank-Algoritms\\Algoritms\\Algoritms\\Algoritms.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Algoritms\\Algoritms\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\HackerRank-Algoritms\\Algoritms\\Algoritms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
