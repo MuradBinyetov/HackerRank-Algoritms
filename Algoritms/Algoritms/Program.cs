@@ -18,27 +18,27 @@ namespace Algoritms
             return sum;
         }
 
-   //-----------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------
 
         //2 Kvadratik matrixin diaqonallarinin ceminin  mutleq ferqi.
-        public static int diagonalDifference(List<List<int>> arr,int n)
+        public static int diagonalDifference(List<List<int>> arr, int n)
         {
             int index = 0;
-            int index2 = n-1;
+            int index2 = n - 1;
             int firstDiag = 0;
             int secondDiag = 0;
             int conclusion = 0;
             foreach (var subArr in arr)
             {
                 firstDiag = firstDiag + subArr[index];
-                secondDiag= secondDiag + subArr[index2];
+                secondDiag = secondDiag + subArr[index2];
                 conclusion = firstDiag - secondDiag;
-                
+
                 if (firstDiag > secondDiag)
                 {
                     conclusion = firstDiag - secondDiag;
                 }
-                else if(firstDiag == secondDiag)
+                else if (firstDiag == secondDiag)
                 {
                     conclusion = 0;
                 }
@@ -81,7 +81,7 @@ namespace Algoritms
             }
             positive = positiveCount / (arr.Length);
             negative = negativeCount / (arr.Length);
-            zero = zeroCount / (arr.Length);         
+            zero = zeroCount / (arr.Length);
         }
 
 
@@ -142,7 +142,7 @@ namespace Algoritms
                 {
                     max = f;
                 }
-            } 
+            }
             foreach (var f in candles)
             {
                 if (max == f)
@@ -181,30 +181,83 @@ namespace Algoritms
                 }
                 convertTime = string.Concat(convertToPM.ToString(), minute);
                 Console.WriteLine(convertTime.Remove(indexAMPM, 2));
-                
-                return convertTime.Remove(indexAMPM,2);
+
+                return convertTime.Remove(indexAMPM, 2);
             }
             else
             {
-                
+
                 index = s.IndexOf(':');
                 hour = s.Substring(0, index);
                 if (int.Parse(hour) >= 12)
                 {
-                     convertToPM = int.Parse(hour) - 12;
+                    convertToPM = int.Parse(hour) - 12;
                 }
                 else
                 {
-                     convertToPM = int.Parse(hour);
+                    convertToPM = int.Parse(hour);
                 }
                 minute = s.Substring(index);
-                
-                convertTime = string.Concat(0,convertToPM.ToString(), minute);
+
+                convertTime = string.Concat(0, convertToPM.ToString(), minute);
                 indexAMPM = convertTime.IndexOf("AM");
                 Console.WriteLine(convertTime.Remove(indexAMPM, 2));
                 return s;
             }
         }
+
+        static string kangaroo(int x1, int v1, int x2, int v2)
+        {
+            if (x1 > x2 && v1 > v2)
+            {
+                Console.WriteLine("No");
+                return "NO";
+            }
+
+            if (x1 < x2 && v1 < v2)
+            {
+                Console.WriteLine("No");
+                return "NO";
+            }
+            
+            if ((x2-x1) % (v1-v2) == 0 || (x2 - x1) % (v2 - v1)== 0)
+            {
+                Console.WriteLine("Yes");
+                return "Yes";
+            }
+
+            return "No";
+        }
+
+
+        static int[] breakingRecords(int[] scores)
+        {
+            int max = scores[0]; // 20
+            int min = scores[0]; // 4
+            int maxCount = 0;
+            int minCount = 0;
+            List<int> countList = new List<int>();
+            int[] ms = { };
+            foreach (var score in scores)
+            {
+                if(min > score)
+                {
+                    min = score;
+                    minCount++;
+                };
+                if (max < score)
+                {
+                    max = score;
+                    maxCount++;
+                }
+
+            }
+            countList.Add(maxCount);
+            countList.Add(minCount);
+            return countList.ToArray();
+
+        }
+
 
         public static void Main(string[] args)
         {
@@ -289,6 +342,31 @@ namespace Algoritms
             //7 AM ile olan saati PM-e cevirmek
 
             //-----------------------------------------------------------------------------------------------------   
+
+
+            //8 Kenqurularin addimlarinin sonsuz dovrde ust uste dusme ehtimali //
+            //string[] x1V1X2V2 = Console.ReadLine().Split(' ');
+
+            //int x1 = Convert.ToInt32(x1V1X2V2[0]);
+
+            //int v1 = Convert.ToInt32(x1V1X2V2[1]);
+
+            //int x2 = Convert.ToInt32(x1V1X2V2[2]);
+
+            //int v2 = Convert.ToInt32(x1V1X2V2[3]);
+
+            //string result = kangaroo(x1, v1, x2, v2);
+            //8 Kenqurularin addimlarinin sonsuz dovrde ust uste dusme ehtimali //
+
+            //-----------------------------------------------------------------------------------------------------  
+
+            //9 Daxil olunan ededlerden max ve min ededlerin sayini tapmaq 
+            //int n = Convert.ToInt32(Console.ReadLine());
+
+            //int[] scores = Array.ConvertAll(Console.ReadLine().Split(' '), scoresTemp => Convert.ToInt32(scoresTemp))
+            //;
+            //int[] result = breakingRecords(scores);
+            //9 Daxil olunan ededlerden max ve min ededlerin sayini tapmaq 
         }
     }
 }

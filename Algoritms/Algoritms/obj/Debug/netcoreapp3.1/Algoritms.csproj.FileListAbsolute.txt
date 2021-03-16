@@ -9,3 +9,14 @@ C:\Users\User\source\repos\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms
 C:\Users\User\source\repos\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.AssemblyInfo.cs
 C:\Users\User\source\repos\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.dll
 C:\Users\User\source\repos\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.pdb
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.csprojAssemblyReference.cache
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.AssemblyInfo.cs
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.dll
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\obj\Debug\netcoreapp3.1\Algoritms.pdb
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\bin\Debug\netcoreapp3.1\Algoritms.exe
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\bin\Debug\netcoreapp3.1\Algoritms.deps.json
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\bin\Debug\netcoreapp3.1\Algoritms.runtimeconfig.json
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\bin\Debug\netcoreapp3.1\Algoritms.runtimeconfig.dev.json
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\bin\Debug\netcoreapp3.1\Algoritms.dll
+C:\Users\User\Desktop\HackerRank-Algoritms\Algoritms\Algoritms\bin\Debug\netcoreapp3.1\Algoritms.pdb
