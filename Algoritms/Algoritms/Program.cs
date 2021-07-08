@@ -367,6 +367,53 @@ namespace Algoritms
             //;
             //int[] result = breakingRecords(scores);
             //9 Daxil olunan ededlerden max ve min ededlerin sayini tapmaq 
+
+
+
+            //------------------------------------------------------------------------------------------------------- 
+
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+            List<int> s = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(sTemp => Convert.ToInt32(sTemp)).ToList();
+
+            string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+
+            int d = Convert.ToInt32(firstMultipleInput[0]);
+
+            int m = Convert.ToInt32(firstMultipleInput[1]);
+
+            int result = BirthdayResult(s, d, m); 
         }
+
+        //static void Main(String[] args)
+        //{
+        //    int n = Convert.ToInt32(Console.ReadLine());
+        //    var t = Console.ReadLine().Trim().Split();
+        //    int[] squares = Array.ConvertAll(t, int.Parse);
+        //    string[] tokens_d = Console.ReadLine().Split();
+        //    int d = Convert.ToInt32(tokens_d[0]);
+        //    int m = Convert.ToInt32(tokens_d[1]);
+
+          
+        //}
+
+
+        public static int BirthdayResult(List<int> elements, int d, int m)
+        {
+            int sum = 0;
+            int count = 0;
+            for (int i = 0; i < elements.Count; i++)
+            {
+                sum += elements[i];
+                if (i >= m) sum -= elements[i - m];
+                if (sum == d && i >= m - 1)
+                    count++;
+            }
+
+            Console.WriteLine(count);
+            return count;
+
+        }
+       
     }
 }
