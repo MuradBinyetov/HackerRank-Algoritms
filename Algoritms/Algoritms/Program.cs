@@ -258,6 +258,198 @@ namespace Algoritms
 
         }
 
+        public static int BirthdayResult(List<int> elements, int d, int m)
+        {
+            int sum = 0;
+            int count = 0;
+            for (int i = 0; i < elements.Count; i++)
+            {
+                sum += elements[i];
+                if (i >= m) sum -= elements[i - m];
+                if (sum == d && i >= m - 1)
+                    count++;
+            }
+
+            Console.WriteLine(count);
+            return count;
+
+        }
+
+        public static int divisibleSumPairs(int n, int k, List<int> ar)
+        {
+            int count = 0;
+
+            for (int i = 0; i < ar.Count; i++)
+            {
+                for (int j = i + 1; j < ar.Count; j++)
+                {
+                    if ((ar[i] + ar[j]) % k == 0)
+                        count++;
+                }
+            }
+
+            Console.WriteLine(count);
+            return count;
+        }
+
+        public static int migratoryBirds(List<int> arr)
+        {
+            var birdTypeCounts = new int[5];
+
+            for (int i = 0; i < arr.Count; i++)
+                birdTypeCounts[arr[i] - 1]++;
+
+            var maxBirdTypeCount = birdTypeCounts[0];
+            var maxBirdType = 1;
+
+            for (int i = 1; i < 5; i++)
+            {
+                if (birdTypeCounts[i] > maxBirdTypeCount)
+                {
+                    maxBirdTypeCount = birdTypeCounts[i];
+                    maxBirdType = i + 1;
+                }
+
+                if (birdTypeCounts[i] == maxBirdTypeCount && i + 1 < maxBirdType)
+                    maxBirdType = i + 1;
+            }
+
+            return maxBirdType;
+        }
+
+
+        public static int bonAppetit(List<int> bill, int k, int b)
+        {
+            bill.Remove(bill[k]);
+            int sum = 0;
+            int annaCash = 0;
+            int returnCash = 0;
+            foreach (var item in bill)
+            {
+                sum += item;
+            }
+            annaCash = sum / 2;
+            if (b == annaCash)
+            {
+                Console.WriteLine("Bon Appetit");
+            }
+            if (b > annaCash)
+            {
+                returnCash = b - annaCash;
+                Console.WriteLine(returnCash);
+            }
+            return returnCash;
+        }
+
+
+        public static int sockMerchant(int n, List<int> ar)
+        {
+            int count = 0;
+            int max = ar.Max() + 1;
+            for (int i = 0; i < ar.Count; i++)
+            {
+                if (ar[i] == max) continue;
+                for (int j = i+1; j < ar.Count; j++)
+                {
+                    if(ar[i] == ar[j])
+                    {
+                        ar[i] = max;
+                        ar[j] = max;
+                        count++;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(count); 
+            return count;
+        }
+
+        public static int pageCount(int n, int p)
+        { 
+            int diffFrom1 = (int)Math.Ceiling((float)(p-1)/2);
+            int diffFromN;
+
+            if(n%2 == 0)
+            {
+                diffFromN = (int)Math.Ceiling((float)(n - p) / 2); ;
+            }
+            else
+            {
+                diffFromN = (int)Math.Floor((float)(n - p) / 2);
+            }
+
+            if (diffFrom1 <= diffFromN)
+            {
+                Console.WriteLine(diffFrom1);
+                return diffFrom1;
+            }
+            else {
+                Console.WriteLine(diffFromN);
+                return diffFromN;
+            }            
+        }
+
+        static int countingValleys(int n, string s)
+        {
+
+            int elevation = 0;
+            int valleyCount = 0;
+            bool aboveSeaLevel = true;
+
+            foreach (char c in s)
+            {
+                if (c == 'D')
+                {
+                    elevation--;
+                }
+
+                else
+                {
+                    elevation++;
+                }
+
+                if (elevation < 0 && aboveSeaLevel == true)
+                {
+                    valleyCount++;
+                    aboveSeaLevel = false;
+                }
+                else if (elevation >= 0 && aboveSeaLevel == false)
+                {
+                    aboveSeaLevel = true;
+                }
+            }
+            Console.WriteLine(valleyCount);
+            return valleyCount;
+        }
+
+        static int getMoneySpent(int[] keyboards, int[] drives, int totalMoneyAvailable)
+        {
+            var sortedKeyboardPrices = from keyboard in keyboards
+                                       orderby keyboard descending
+                                       select keyboard;
+            var sortedDrivePrices = from drive in drives
+                                    orderby drive ascending
+                                    select drive;
+            //default if not able to purchase anything
+            var maxMoneySpendable = -1;
+
+            foreach (var keyboard in sortedKeyboardPrices)
+            {
+                foreach (var drive in sortedDrivePrices)
+                {
+                    if (keyboard + drive <= totalMoneyAvailable)
+                    {
+                        if (keyboard + drive > maxMoneySpendable)
+                            maxMoneySpendable = keyboard + drive;
+                    }
+                    else
+                        break;
+                }
+            }
+            return maxMoneySpendable;
+        }
+
+
 
         public static void Main(string[] args)
         {
@@ -372,48 +564,120 @@ namespace Algoritms
 
             //------------------------------------------------------------------------------------------------------- 
 
-            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            //10 Sokolad meselesi(Subarray Division)
+            //int n = Convert.ToInt32(Console.ReadLine().Trim());
 
-            List<int> s = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(sTemp => Convert.ToInt32(sTemp)).ToList();
+            //List<int> s = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(sTemp => Convert.ToInt32(sTemp)).ToList();
 
-            string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+            //string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
 
-            int d = Convert.ToInt32(firstMultipleInput[0]);
+            //int d = Convert.ToInt32(firstMultipleInput[0]);
 
-            int m = Convert.ToInt32(firstMultipleInput[1]);
+            //int m = Convert.ToInt32(firstMultipleInput[1]);
 
-            int result = BirthdayResult(s, d, m); 
+            //int result = BirthdayResult(s, d, m);
+            //------------------------------------------------------------------------------------------------------- 
+
+            //------------------------------------------------------------------------------------------------------- 
+            //11 Divisible Sum Pairs
+
+            //string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+
+            //int n = Convert.ToInt32(firstMultipleInput[0]);
+
+            //int k = Convert.ToInt32(firstMultipleInput[1]);
+
+            //List<int> ar = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arTemp => Convert.ToInt32(arTemp)).ToList();
+
+            //int result =divisibleSumPairs(n, k, ar); 
+
+            //-------------------------------------------------------------------------------------------------------
+
+            //------------------------------------------------------------------------------------------------------- 
+            //12 Migratory Birds
+
+
+            //int arrCount = Convert.ToInt32(Console.ReadLine().Trim());
+
+            //List<int> arr = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp)).ToList();
+
+            //int result = migratoryBirds(arr);
+
+            //------------------------------------------------------------------------------------------------------- 
+
+            //------------------------------------------------------------------------------------------------------- 
+            //13 Bill Division
+            //string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+
+            //int n = Convert.ToInt32(firstMultipleInput[0]);
+
+            //int k = Convert.ToInt32(firstMultipleInput[1]);
+
+            //List<int> bill = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(billTemp => Convert.ToInt32(billTemp)).ToList();
+
+            //int b = Convert.ToInt32(Console.ReadLine().Trim());
+
+            //bonAppetit(bill, k, b);
+
+            //------------------------------------------------------------------------------------------------------- 
+
+
+
+            //------------------------------------------------------------------------------------------------------- 
+
+            //14 Sales By Match
+            //int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+            //List<int> ar = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arTemp => Convert.ToInt32(arTemp)).ToList();
+
+            //int result = sockMerchant(n, ar);
+
+
+            //------------------------------------------------------------------------------------------------------- 
+
+            //15 Drawing Book
+
+            //int n = Convert.ToInt32(Console.ReadLine().Trim());
+
+            //int p = Convert.ToInt32(Console.ReadLine().Trim());
+
+            //int result = pageCount(n, p);
+
+            //------------------------------------------------------------------------------------------------------- 
+
+            //------------------------------------------------------------------------------------------------------- 
+
+            //16 Counting Valleys
+
+            //int steps = Convert.ToInt32(Console.ReadLine().Trim());
+
+            //string path = Console.ReadLine();
+
+            //int result = countingValleys(steps, path);
+
+            //------------------------------------------------------------------------------------------------------- 
+
+
+            //------------------------------------------------------------------------------------------------------- 
+            //17 Electronics Shop
+            //string[] bnm = Console.ReadLine().Split(' ');
+
+            //int b = Convert.ToInt32(bnm[0]);
+
+            //int n = Convert.ToInt32(bnm[1]);
+
+            //int m = Convert.ToInt32(bnm[2]);
+
+            //int[] keyboards = Array.ConvertAll(Console.ReadLine().Split(' '), keyboardsTemp => Convert.ToInt32(keyboardsTemp));
+
+            //int[] drives = Array.ConvertAll(Console.ReadLine().Split(' '), drivesTemp => Convert.ToInt32(drivesTemp));
+
+            //int moneySpent = getMoneySpent(keyboards, drives, b);
+
+            //------------------------------------------------------------------------------------------------------- 
+
+
         }
 
-        //static void Main(String[] args)
-        //{
-        //    int n = Convert.ToInt32(Console.ReadLine());
-        //    var t = Console.ReadLine().Trim().Split();
-        //    int[] squares = Array.ConvertAll(t, int.Parse);
-        //    string[] tokens_d = Console.ReadLine().Split();
-        //    int d = Convert.ToInt32(tokens_d[0]);
-        //    int m = Convert.ToInt32(tokens_d[1]);
-
-          
-        //}
-
-
-        public static int BirthdayResult(List<int> elements, int d, int m)
-        {
-            int sum = 0;
-            int count = 0;
-            for (int i = 0; i < elements.Count; i++)
-            {
-                sum += elements[i];
-                if (i >= m) sum -= elements[i - m];
-                if (sum == d && i >= m - 1)
-                    count++;
-            }
-
-            Console.WriteLine(count);
-            return count;
-
-        }
-       
     }
 }
